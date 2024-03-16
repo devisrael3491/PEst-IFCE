@@ -1,10 +1,9 @@
 def fibonacci(termos : int):
     a1 = 0
     a2 = 1
-    print(1)
     for i in range(1, termos):
-        a3  = a1 + a2
-        print(a3)
+        print(a1)
+        a3 = a1 + a2
         a1 = a2
         a2 = a3
     

@@ -1,43 +1,32 @@
 def caminhada_aleatoria(passos : int):
     from random import randint
     
-    pos_x = 0
-    pos_y = 0
-
-    for i in range(1, passos + 1):
-        
+    x = 0
+    y = 0
+    for i in range(1, passos+1):
         direcao = randint(1,4)
-
-        #1 - esquerda
-        #2 - direita
-        #3 - baixo
-        #4 - cima
-        
+    
         if direcao == 1:
-            pos_x -= 1
-            print('player andou para esquerda.')
+            x -= 1
+            print(f"player deu um passo para a esquerda\n")
         elif direcao == 2:
-            pos_x += 1
-            print('player andou para a direita.')
+            x += 1
+            print(f"player deu um passo para a direita\n")
         elif direcao == 3:
-            pos_y -= 1
-            print('player andou para baixo')
+            y -= 1
+            print(f"player deu um passo para  baixo\n")
         else:
-            pos_y += 1
-            print('player andou para cima')
+            y += 1
+            print(f"player deu um passo para cima\n")
+    
+    posicao_final = f'({x},{y})'
+    
+    print(f"player parou na posição {posicao_final}\n")
+    
+    distancia_total = (y**2 + x ** 2) ** (1/2)
+    
+    print(f"o jogador andou um total de {distancia_total:.2f}m de distância.\n")
+    
+passos = int(input('insira a quantidade de passos: '))
 
-    pos_f = f'({pos_x},{pos_y})'
-
-    print(f'player parou em {pos_f}')
-
-
-caminhada_aleatoria(10)
-
-
-        
-
-        
-
-
-
-
+caminhada_aleatoria(passos)

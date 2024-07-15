@@ -1,11 +1,22 @@
-num = int(input('insira um número de 3 algarismos: '))
+n = int(input('insira um número de até 3 algarismos: '))
 
-uni = num % 10
-cen = num // 100
-dez = (num - cen * 100 - uni) / 10
-inv = (uni * 100) + (dez * 10) + cen
-
-if num == inv:
-    print('palíndromo.')
+if n > 999 or n < 0:
+    print(f'O número {n} tem mais do que 3 algarismos ou é negativo.')
 else:
-    print('não palíndromo.')
+    unidade = n % 10
+    dezena = (n // 10)  % 10
+    centena = (n // 100)
+
+
+    if centena == 0 and dezena == 0:
+        inverso = unidade
+    elif centena == 0:
+        inverso = unidade * 10 + dezena
+    else:
+        inverso = unidade * 100 + dezena * 10 + centena
+
+    if inverso == n:
+        print(f'{n} é um palíndromo.')
+    else:
+        print(f'{n} não é um palíndromo.')
+

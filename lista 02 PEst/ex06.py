@@ -1,12 +1,20 @@
-n = int(input('digite um número de 5 dígitos: '))
+n = int(input('insira um número de 5 algarismos: '))
 
-uni = n % 10
-dez = ((n - uni) / 10) % 10
-dm = n // 10000
-m = (n - dm) // 1000
-cen = (n - m - dm) // 100
+if n >=  10000 and n <= 99999:
 
-if (uni == dez or uni == cen or uni == m or uni == dm) or (dez == cen or dez == m or dez == dm) or (cen == m or cen == dm) or (m == dm):
-    print('repete algum número')
+    unidade = n % 10
+    dezena_de_milhar = n // 10000
+    unidade_de_milhar = (n - dezena_de_milhar * 10000) // 1000
+    dezena = ((n - unidade) / 10) % 10
+    centena = (n - (dezena_de_milhar * 10000) - (unidade_de_milhar * 1000) - (dezena * 10) - (unidade)) // 100
+
+    if (unidade == dezena or unidade == centena or unidade == unidade_de_milhar or unidade == dezena_de_milhar) or \
+    (dezena == centena or dezena == unidade_de_milhar or dezena == dezena_de_milhar) or \
+    (centena == unidade_de_milhar or centena == dezena_de_milhar) or (unidade_de_milhar == dezena_de_milhar):
+        print(f'Há pelo menos dois algarismos iguais no número {n}')
+    else:
+        print(f'Nenhum dígito se repete no número {n}.')
+
 else:
-    print('não repete nenhum.')
+    print(f'o número {n} não possui 5 algarismos.')
+

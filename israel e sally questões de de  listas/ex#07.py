@@ -15,14 +15,13 @@ def adicionar_pessoa(pessoa : str, fila : list):
         print(f'{pessoa} foi adicionado à fila!')
         fila.append(pessoa)
 
-def atender_pessoa(pessoa : str, fila : list):
-
-    if pessoa in fila:
-        print(f'{pessoa} foi atendido(a) com sucesso!')
-        fila.remove(pessoa)
+def atender_pessoa(fila : list):
+    tamanho = len(fila)
+    if tamanho != 0:
+        print(f'{fila[0]} foi atendido com sucesso!')
+        del fila[0]
     else:
-        print(f'{pessoa} não está na fila!')
-
+        print(f'a fila está vazia, ninguém para atender aqui...')
 
 
 
@@ -44,8 +43,7 @@ while True:
         adicionar_pessoa(pessoa , fila)
 
     elif opera == 3:
-        pessoa = str(input('insira opessoa que deseja remover: '))
-        atender_pessoa(pessoa, fila)
+        atender_pessoa(fila)
     else:
         print(f'Obrigado, volte sempre!!!')
         break
